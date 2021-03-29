@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">First Application</string>
+    <string name="click_me">Click Me</string>
+    <string name="main_title">Pioneers Academy</string>
+    <string name="pioneersAcademy">Pioneers Academy</string>
+    <string name="desc">
+                <b>Pioneers Academy</b> is the largest training and educational institution in the Hashemite kingdom of Jordan, offering a comprehensive range of training and developmental solutions to both individuals and corporate professionals locally and regionally.
+        \n\n
+        It was established in 1993 and operating a fully prepared training facility of more than 17760 square - feet with state of the art academic equipment.
+        \n\n
+        <b>Our mission</b>\n
+        To provide high quality up-to-date, creative and interesting training, consultations and software development services.
+        \n\n
+        <b>Our vision</b>\n
+        To be the pioneers in providing the ultimate training, consultation and software services, locally and regionally.
+        \n\n
+        <b>Trainers</b>\n
+        We are committed to excellence in training with extensive practical experience of more than 7 years. The academy cooperates with more than 40 professional trainers that are accredited by several international organizations.
+        \n\n
+        <b>Our training programs</b>\n
+        The programs provided by Pioneers Academy are designed and developed in compliance with international standards. The courses are frequently updated based, not only on the latest international principles and practices, but also on field research, first-hand experience, and in-depth knowledge of the market and the specific requirements of organizations.
+
+    </string>
+    <string name="login">Log in</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="create_new">Create new account</string>
+</resources>
