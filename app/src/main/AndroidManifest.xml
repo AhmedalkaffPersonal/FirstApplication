@@ -10,10 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
         <activity android:name=".RegisterActivity"></activity>
-        <activity
-            android:name=".RegistrationActivity"
-            android:label="@string/title_activity_registration"
-            android:theme="@style/Theme.FirstApplication.NoActionBar" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
