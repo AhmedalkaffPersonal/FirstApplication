@@ -21,6 +21,10 @@ class LoginActivity : AppCompatActivity() {
         // Initialize the UI elements
         UIInit()
 
+        val text = intent.getStringExtra("data")
+        if(text != null)
+            editTextName.setText(text)
+
         val editTextName = findViewById<View>(R.id.editTextTextPersonName) as EditText
         //editTextName.setText("")
         Log.v("LoginActivity","Verbose")

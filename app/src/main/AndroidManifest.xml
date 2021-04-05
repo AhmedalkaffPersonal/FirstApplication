@@ -9,15 +9,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".IntentActivity"
+            android:label="@string/title_activity_intent"
+            android:theme="@style/Theme.FirstApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".RegisterActivity" >
+            <intent-filter
+                android:label="RegisterActivity"
+                android:icon="@mipmap/ic_launcher_round">
+                <action android:name="com.pioneersacademy.alkaff.firstapplication.myAction"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity">
+            <intent-filter
+                android:label="LoginActivity"
+                android:icon="@drawable/ic_search_black_24dp"
+                >
+                <action android:name="com.pioneersacademy.alkaff.firstapplication.myAction"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>
