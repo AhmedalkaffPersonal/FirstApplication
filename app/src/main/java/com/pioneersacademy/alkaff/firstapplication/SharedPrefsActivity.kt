@@ -1,9 +1,11 @@
 package com.pioneersacademy.alkaff.firstapplication
 
 import android.content.SharedPreferences
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pioneersacademy.alkaff.firstapplication.databinding.ActivitySharedPrefsBinding
+import com.pioneersacademy.alkaff.firstapplication.sqlite.MySqlHelper
 import kotlin.random.Random
 
 
@@ -13,12 +15,17 @@ class SharedPrefsActivity : AppCompatActivity() {
     private lateinit var binding:ActivitySharedPrefsBinding
     private var highestScore:Int = 0
     private lateinit var sharedPrefs:SharedPreferences
+    private lateinit var myDbHelper:MySqlHelper
+    private lateinit var myDb:SQLiteDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySharedPrefsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         sharedPrefs = getSharedPreferences("Highest",MODE_PRIVATE)
+        myDbHelper = MySqlHelper(applicationContext)
+        myDb = myDbHelper.writableDatabase
 
         binding.apply {
             highestScore = sharedPrefs.getInt("Highest",0)
@@ -29,11 +36,17 @@ class SharedPrefsActivity : AppCompatActivity() {
                 if(rand > highestScore) {
                     highestScore = rand
                     storetoSahredprefs(highestScore)
+                    saveToDatabase(highestScore)
                 }
                 textViewScore.setText(rand.toString())
                 textViewHighestScore.setText(highestScore.toString())
             }
         }
+    }
+
+    private fun saveToDatabase(highestScore: Int) {
+        myDb.execSQL("INSERT INTO HIGHEST VALUES (${highestScore})")
+
     }
 
     private fun storetoSahredprefs(highestScore: Int) {
