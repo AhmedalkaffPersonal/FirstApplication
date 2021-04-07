@@ -9,7 +9,12 @@ import com.pioneersacademy.alkaff.firstapplication.sqlite.MySqlHelper
 import kotlin.random.Random
 
 
-// For more details read at https://developer.android.com/training/data-storage/shared-preferences#kotlin
+// For more details about sharedPreferences read at
+// https://developer.android.com/training/data-storage/shared-preferences#kotlin
+
+// For more details about SQLite database read at
+// https://developer.android.com/training/data-storage/sqlite
+
 
 class SharedPrefsActivity : AppCompatActivity() {
     private lateinit var binding:ActivitySharedPrefsBinding
