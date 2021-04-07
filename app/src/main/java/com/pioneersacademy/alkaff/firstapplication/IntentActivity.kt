@@ -1,6 +1,7 @@
 package com.pioneersacademy.alkaff.firstapplication
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -15,6 +16,7 @@ class IntentActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityIntentBinding
     private val IMAGE_CAPTURE_REQUEST_CODE: Int = 100
+    private lateinit var sharepref:SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIntentBinding.inflate(layoutInflater)
@@ -37,6 +39,7 @@ class IntentActivity : AppCompatActivity() {
             startActivity(intent)
             // or
             //intent.setData(Uri.parse("tel:${number}"))
+
 
 
         }
