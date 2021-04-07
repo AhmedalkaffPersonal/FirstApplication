@@ -6,6 +6,9 @@ import android.os.Bundle
 import com.pioneersacademy.alkaff.firstapplication.databinding.ActivitySharedPrefsBinding
 import kotlin.random.Random
 
+
+// For more details read at https://developer.android.com/training/data-storage/shared-preferences#kotlin
+
 class SharedPrefsActivity : AppCompatActivity() {
     private lateinit var binding:ActivitySharedPrefsBinding
     private var highestScore:Int = 0
