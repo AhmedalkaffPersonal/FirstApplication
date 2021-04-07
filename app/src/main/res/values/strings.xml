@@ -45,4 +45,5 @@
     <string name="title_activity_intent">IntentActivity</string>
     <string name="url">URL</string>
     <string name="take_photo">Take photo</string>
+    <string name="play">Play</string>
 </resources>

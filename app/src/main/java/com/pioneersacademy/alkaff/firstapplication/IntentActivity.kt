@@ -41,7 +41,6 @@ class IntentActivity : AppCompatActivity() {
             //intent.setData(Uri.parse("tel:${number}"))
 
 
-
         }
 
         binding.contentIntent.apply {
