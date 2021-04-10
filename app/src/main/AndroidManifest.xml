@@ -9,19 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
-        <activity android:name=".SharedPrefsActivity">
+        <activity
+            android:name=".ListActivity"
+            android:label="@string/title_activity_list"
+            android:theme="@style/Theme.FirstApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SharedPrefsActivity">
+
+        </activity>
         <activity
             android:name=".IntentActivity"
             android:label="@string/title_activity_intent"
-            android:theme="@style/Theme.FirstApplication.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.FirstApplication.NoActionBar"></activity>
         <activity android:name=".RegisterActivity">
             <intent-filter
                 android:icon="@mipmap/ic_launcher_round"
@@ -40,7 +44,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

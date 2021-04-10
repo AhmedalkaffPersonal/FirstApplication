@@ -1,9 +1,11 @@
 package com.pioneersacademy.alkaff.firstapplication
 
+import android.content.ContentValues
 import android.content.SharedPreferences
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.pioneersacademy.alkaff.firstapplication.databinding.ActivitySharedPrefsBinding
 import com.pioneersacademy.alkaff.firstapplication.sqlite.MySqlHelper
 import kotlin.random.Random
@@ -33,7 +35,11 @@ class SharedPrefsActivity : AppCompatActivity() {
         myDb = myDbHelper.writableDatabase
 
         binding.apply {
-            highestScore = sharedPrefs.getInt("Highest",0)
+            // Get the highest score from the shared Pres
+//            highestScore = sharedPrefs.getInt("Highest",0)
+//
+            // Get the highest score from the database
+            highestScore = myDbHelper.getHighestScore()
             textViewHighestScore.setText(highestScore.toString())
             textViewScore.setText("0")
             buttonPlay.setOnClickListener(){
@@ -50,7 +56,15 @@ class SharedPrefsActivity : AppCompatActivity() {
     }
 
     private fun saveToDatabase(highestScore: Int) {
-        myDb.execSQL("INSERT INTO HIGHEST VALUES (${highestScore})")
+//        val values = ContentValues().apply {
+//            put(MySqlHelper.VALUE_COLUMN,highestScore)
+//        }
+//        myDb.insert(MySqlHelper.TABLE_NAME_HIGHEST,null,values)
+
+        myDbHelper.addHighestScore(highestScore)
+//        val sql:String = "INSERT INTO HIGHEST (VALUE) VALUES (${highestScore});"
+//        Log.d("SharedPrefsActivity",sql)
+//        myDb.execSQL(sql)
 
     }
 

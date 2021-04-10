@@ -46,4 +46,6 @@
     <string name="url">URL</string>
     <string name="take_photo">Take photo</string>
     <string name="play">Play</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="age">Age</string>
 </resources>
