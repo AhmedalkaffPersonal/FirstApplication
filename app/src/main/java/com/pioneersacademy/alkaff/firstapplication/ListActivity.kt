@@ -27,7 +27,7 @@ class ListActivity : AppCompatActivity() {
     val datamap:MutableList<Map<String,Any?>> = mutableListOf()
 
     val from:Array<String> = arrayOf(KEY_NAME, KEY_AGE, KEY_BUTTON)
-    val fromCursor:Array<String> = arrayOf(MySqlHelper.NAME_COLUMN,MySqlHelper.AGE_COLUMN)
+    val fromCursor:Array<String> = arrayOf(MySqlHelper.NAME_COLUMN,MySqlHelper.AGE_COLUMN,MySqlHelper.ID_COLUMN)
     val to:IntArray = intArrayOf(R.id.textView_item_name,R.id.textView_item_age,R.id.button_item_add)
 
     override fun onCreate(savedInstanceState: Bundle?) {
