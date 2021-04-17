@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.commit
 import com.pioneersacademy.alkaff.firstapplication.databinding.ActivityFragmentHostBinding
 import java.lang.Exception
@@ -35,7 +34,7 @@ class FragmentHostActivity : AppCompatActivity(), MyListFragment.ItemListener {
         if (savedInstanceState == null) {
 
             supportFragmentManager.commit {
-                add(R.id.fragment_container_view1, MyListFragment())
+                add(R.id.fragment_container_view_list, MyListFragment())
                 //add(R.id.fragment_container_view2, myFirstFragment!!)
             }
 
@@ -45,9 +44,10 @@ class FragmentHostActivity : AppCompatActivity(), MyListFragment.ItemListener {
     private fun setlayout() {
         if(myFirstFragment?.isAdded != true)
         {
-            binding.fragmentContainerView2.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT,1.0f)
+            // Fixed the layout issue
+            binding.fragmentContainerViewDetails.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,0.0f)
         }else {
-            binding.fragmentContainerView2.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,0,1.0f)
+            binding.fragmentContainerViewDetails.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT,1.0f)
 
         }
     }
@@ -72,7 +72,7 @@ class FragmentHostActivity : AppCompatActivity(), MyListFragment.ItemListener {
         {
             try{
                 supportFragmentManager.commit {
-                    add(R.id.fragment_container_view2, myFirstFragment!!)
+                    add(R.id.fragment_container_view_details, myFirstFragment!!)
                     addToBackStack(null)
 
                 }
