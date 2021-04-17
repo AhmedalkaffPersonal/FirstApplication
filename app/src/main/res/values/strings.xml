@@ -38,6 +38,13 @@
         <item>Item 3</item>
         <item>Item 4</item>
         <item>Item 5</item>
+        <item>Item 6</item>
+        <item>Item 7</item>
+        <item>Item 8</item>
+        <item>Item 9</item>
+        <item>Item 10</item>
+        <item>Item 11</item>
+
     </array>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

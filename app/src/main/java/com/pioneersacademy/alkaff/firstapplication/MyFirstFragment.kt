@@ -1,18 +1,23 @@
 package com.pioneersacademy.alkaff.firstapplication
 
 import android.content.Context
+import android.os.Binder
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.pioneersacademy.alkaff.firstapplication.databinding.MyFirstFragementBinding
 
 // TODO: Step 1: create your own fragement class and inherit from Fragment super class
 class MyFirstFragment : Fragment() {
 
-    // TODO: Step 2: Add fragement life cycle call backs
+    // TODO: Step 2: Add fragment life cycle call backs
 
+    private lateinit var binder:MyFirstFragementBinding
     override fun onAttach(context: Context) {
         Log.d("MyFirstFragment","onAttach")
         super.onAttach(context)
@@ -33,14 +38,27 @@ class MyFirstFragment : Fragment() {
     ): View? {
         Log.d("MyFirstFragment","onCreateView")
 
-        // TODO: Step 4: inflat the fragement layout using the provided inflator object
-        // make sure to use inflator at onCreateView funtion not at onViewCreated
-        return inflater.inflate(R.layout.my_first_fragement,container,false)
+        // TODO: Step 4: inflate the fragment layout using the provided inflater object
+        // make sure to use inflater at onCreateView function not at onViewCreated
+
+        binder = MyFirstFragementBinding.inflate(inflater)
+
+        Log.d("MyFirstFragment","binder is initialized")
+        return binder.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.d("MyFirstFragment","onViewCreated")
+
         super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    fun changeText(text:String?){
+
+        binder?.apply {
+            editTextTextPersonName3.setText(text)
+        }
 
     }
 
