@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.pioneersacademy.alkaff.firstapplication"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -41,6 +41,13 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
+
+    // SDP - A scalable size unit library
+    // Add the library for designing the better layout using dimensions.
+    // https://github.com/intuit/sdp
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

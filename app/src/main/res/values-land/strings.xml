@@ -16,5 +16,6 @@
     <string name="take_photo">Take photo</string>
     <string name="play">Play</string>
     <string name="age">Age</string>
+    <string name="lbl_title">Title</string>
 
 </resources>

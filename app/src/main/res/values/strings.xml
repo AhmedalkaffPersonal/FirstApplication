@@ -62,4 +62,11 @@
     <string name="play">Play</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="age">Age</string>
+
+    <string name="image_contentDescription">image</string>
+    <string name="title_select_image">Select Image Action</string>
+    <string name="lbl_camera">Camera</string>
+    <string name="lbl_gallery">Gallery</string>
+    <string name="lbl_title">Title</string>
+
 </resources>

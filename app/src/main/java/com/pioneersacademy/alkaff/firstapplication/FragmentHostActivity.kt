@@ -45,9 +45,11 @@ class FragmentHostActivity : AppCompatActivity(), MyListFragment.ItemListener {
         if(myFirstFragment?.isAdded != true)
         {
             // Fixed the layout issue
-            binding.fragmentContainerViewDetails.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,0.0f)
+            binding.fragmentContainerViewDetails.layoutParams =
+                LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,0.0f);
         }else {
-            binding.fragmentContainerViewDetails.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT,1.0f)
+            binding.fragmentContainerViewDetails.layoutParams =
+                LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT,1.0f);
 
         }
     }
