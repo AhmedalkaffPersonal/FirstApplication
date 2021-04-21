@@ -2,8 +2,10 @@ package com.pioneersacademy.alkaff.firstapplication
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ActivityNotFoundException
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -18,8 +20,17 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.karumi.dexter.listener.single.PermissionListener
 import com.pioneersacademy.alkaff.firstapplication.databinding.ActivityPermissionsBinding
 import com.pioneersacademy.alkaff.firstapplication.databinding.DialogCustomImageSelectionBinding
+import kotlinx.coroutines.NonCancellable.cancel
 
 // TODO: read more about permissions at https://developer.android.com/training/permissions/requesting
 class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnLongClickListener {
@@ -47,7 +58,6 @@ class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnL
         TODO("Not yet implemented")
     }
 
-
     /**
      * A function to launch the custom image selection dialog.
      */
@@ -64,16 +74,65 @@ class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnL
 
         binding.tvCamera.setOnClickListener {
             // TODO: check if the application has the required permissions
-            if(checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_REQUEST_CODE))
-            {
-                captureImage()
-            }
+//            if(checkPermission(Manifest.permission.CAMERA, CAMERA_PERMISSION_REQUEST_CODE))
+//            {
+//                captureImage()
+//            }
+            // Rewrite using dexter
+            Dexter.withContext(this@PermissionsActivity)
+                .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA)
+                .withListener(object:MultiplePermissionsListener {
+                    override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                        // when all the permissions are granted
+
+                        report?.let {
+                            // the same idea as hasPermission function that we implement before
+                            if(report.areAllPermissionsGranted())
+                            {
+                                captureImage()
+                            }
+                        }
+                    }
+
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissions: MutableList<PermissionRequest>?,
+                        token: PermissionToken?
+                    ) {
+                        // When permissions are denied before
+                        //Toast.makeText(this@PermissionsActivity,"Camera permission is required to capture images",Toast.LENGTH_LONG).show()
+                        showRationalDialogForPermissions()
+                    }
+
+                }).onSameThread()
+                .check()
             dialog.dismiss()
         }
 
         binding.tvGallery.setOnClickListener {
 
-            launchGallery()
+            Dexter.withContext(this@PermissionsActivity)
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(object: PermissionListener{
+                    override fun onPermissionGranted(response: PermissionGrantedResponse?) {
+                        launchGallery()
+                    }
+
+                    override fun onPermissionDenied(response: PermissionDeniedResponse?) {
+                        Toast.makeText(this@PermissionsActivity,"You have denied the storage permission to select an image.",Toast.LENGTH_LONG).show()
+                    }
+
+                    override fun onPermissionRationaleShouldBeShown(
+                        permission: PermissionRequest?,
+                        token: PermissionToken?
+                    ) {
+                        showRationalDialogForPermissions()
+                    }
+
+                }).onSameThread()
+                .check()
+
+
+
             dialog.dismiss()
         }
 
@@ -81,9 +140,26 @@ class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnL
         dialog.show()
     }
 
+    private fun showRationalDialogForPermissions() {
+        AlertDialog.Builder(this@PermissionsActivity)
+            .setMessage("Message")
+            .setPositiveButton(R.string.goToSettings) { dialogInterface: DialogInterface, i: Int ->
+                goToSettings()
+            }.setNegativeButton(R.string.cancel) {dialogInterface: DialogInterface, i: Int ->
+                dialogInterface.dismiss()
+            }.show()
+
+
+    }
+
+    /**
+     * Check the permission
+     */
     private fun checkPermission(permission:String, requestCode:Int):Boolean{
+        // Step 1: check the API if API >= 23 then check run-time permissions
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
+            // if the permission is already granted
             if(hasPermissions(arrayOf(permission)))
             {
                 return true
@@ -104,6 +180,8 @@ class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnL
                 return false
             }
         }
+        /* if API < 23 then no need to check the permission,
+        // because the permission must be granted before installing the application */
         return  true
     }
 
@@ -115,9 +193,9 @@ class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnL
      * To check for many permissions
      */
     private fun hasPermissions(permissions:Array<String>): Boolean {
-        for (per in permissions)
+        for (permission in permissions)
         {
-            if(ActivityCompat.checkSelfPermission(this,per) != PackageManager.PERMISSION_GRANTED)
+            if(ActivityCompat.checkSelfPermission(this,permission) != PackageManager.PERMISSION_GRANTED)
                 return  false
         }
 
@@ -125,6 +203,7 @@ class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnL
     }
 
 
+    // no need to implement this function if you used Dexter, this is required only if you need to check permissions manually
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -224,7 +303,7 @@ class PermissionsActivity : AppCompatActivity() , View.OnClickListener, View.OnL
         private const val CAMERA = 1
         private const val GALLERY = 2
 
-        private const val CAMERA_PERMISSION_REQUEST_CODE = 11
+        private const val CAMERA_PERMISSION_REQUEST_CODE = 15
 
     }
 }

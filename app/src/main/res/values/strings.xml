@@ -68,5 +68,7 @@
     <string name="lbl_camera">Camera</string>
     <string name="lbl_gallery">Gallery</string>
     <string name="lbl_title">Title</string>
+    <string name="goToSettings">Go to settings</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
