@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.pioneersacademy.alkaff.firstapplication">
 
-        // Step 1: Declare the permissions
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28">
-    </uses-permission>
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -16,7 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
-        <activity android:name=".PermissionsActivity"
+        <activity
+            android:name=".SendbroadcastActivity"
+            android:label="@string/title_activity_sendbroadcast"
             android:theme="@style/Theme.FirstApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,13 +30,48 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FragmentHostActivity">
+
+        <receiver
+            android:name=".MyReceiver"
+            >
+            <intent-filter>
+                <action android:name="com.pioneersacademy.alkaff.MyAction"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </receiver>
+
+<!--        <receiver-->
+<!--            android:name=".SmsBroadcastReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:permission="android.permission.RECEIVE_SMS"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter android:priority="999">-->
+<!--                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+<!--        <receiver android:name=".SMSBroadcastReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:permission="android.permission.RECEIVE_SMS"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter android:priority="999">-->
+<!--                <action android:name="android.provider.Telephony.SMS_RECEIVED" />-->
+
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+
+        <activity
+            android:name=".PermissionsActivity"
+            android:theme="@style/Theme.FirstApplication.NoActionBar">
 
         </activity>
+        <activity android:name=".FragmentHostActivity" />
         <activity
             android:name=".ListActivity"
             android:label="@string/title_activity_list"
-            android:theme="@style/Theme.FirstApplication.NoActionBar"></activity>
+            android:theme="@style/Theme.FirstApplication.NoActionBar" />
         <activity android:name=".SharedPrefsActivity" />
         <activity
             android:name=".IntentActivity"
@@ -58,3 +99,7 @@
     </application>
 
 </manifest>
+
+
+
+

@@ -70,5 +70,11 @@
     <string name="lbl_title">Title</string>
     <string name="goToSettings">Go to settings</string>
     <string name="cancel">Cancel</string>
+    <string name="title_activity_sendbroadcast">SendbroadcastActivity</string>
+    <string name="register_reciever">Register</string>
+    <string name="data">Data</string>
+    <string name="register_sms">Register SMS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
