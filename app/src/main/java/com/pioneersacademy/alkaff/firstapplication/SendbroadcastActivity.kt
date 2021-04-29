@@ -44,11 +44,6 @@ class SendbroadcastActivity : AppCompatActivity() {
             priority = 999
         }
 
-
-
-
-
-
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
 
             //Log.d("BroadcastReceiver","FloatingActionButton")
