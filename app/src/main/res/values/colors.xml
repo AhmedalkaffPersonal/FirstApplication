@@ -21,4 +21,7 @@
 
     <color name="blue_grey_700">#37474f</color>
     <color name="grey_900">#212121</color>
+    <color name="gray">#6B6B6D</color>
+    <color name="whiteback">#D6D6D6</color>
+    <color name="buop">#F79231</color>
 </resources>

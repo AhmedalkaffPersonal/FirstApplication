@@ -46,7 +46,7 @@ dependencies {
     // Add the library for designing the better layout using dimensions.
     // https://github.com/intuit/sdp
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
-
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
     // To use dexter
     implementation 'com.karumi:dexter:6.2.2'
 

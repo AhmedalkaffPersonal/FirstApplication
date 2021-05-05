@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تطبيقي</string>
+    <string name="click_me">اضغط هنا</string>
+    <string name="main_title">اكاديمية الرواد</string>
+    <string name="pioneersAcademy">اكاديمية الرواد</string>
+    <string name="desc">
+                <b>Pioneers Academy</b> is the largest training and educational institution in the Hashemite kingdom of Jordan, offering a comprehensive range of training and developmental solutions to both individuals and corporate professionals locally and regionally.
+        \n\n
+        It was established in 1993 and operating a fully prepared training facility of more than 17760 square - feet with state of the art academic equipment.
+        \n\n
+        <b>Our mission</b>\n
+        To provide high quality up-to-date, creative and interesting training, consultations and software development services.
+        \n\n
+        <b>Our vision</b>\n
+        To be the pioneers in providing the ultimate training, consultation and software services, locally and regionally.
+        \n\n
+        <b>Trainers</b>\n
+        We are committed to excellence in training with extensive practical experience of more than 7 years. The academy cooperates with more than 40 professional trainers that are accredited by several international organizations.
+        \n\n
+        <b>Our training programs</b>\n
+        The programs provided by Pioneers Academy are designed and developed in compliance with international standards. The courses are frequently updated based, not only on the latest international principles and practices, but also on field research, first-hand experience, and in-depth knowledge of the market and the specific requirements of organizations.
+
+    </string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="name">الاسم</string>
+    <string name="password">كلمة السر</string>
+    <string name="create_new">انشاء حساب جديد</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">التالي</string>
+    <string name="previous">السابق</string>
+
+    <array name="list_items">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+        <item>Item 7</item>
+        <item>Item 8</item>
+        <item>Item 9</item>
+        <item>Item 10</item>
+        <item>Item 11</item>
+
+    </array>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="phone">Phone number</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_intent">IntentActivity</string>
+    <string name="url">URL</string>
+    <string name="take_photo">Take photo</string>
+    <string name="play">Play</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="age">Age</string>
+
+    <string name="image_contentDescription">image</string>
+    <string name="title_select_image">Select Image Action</string>
+    <string name="lbl_camera">Camera</string>
+    <string name="lbl_gallery">Gallery</string>
+    <string name="lbl_title">Title</string>
+    <string name="goToSettings">Go to settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_sendbroadcast">SendbroadcastActivity</string>
+    <string name="register_reciever">Register</string>
+    <string name="data">Data</string>
+    <string name="register_sms">Register SMS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -21,7 +21,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
-        <activity android:name=".ContactsActivity">
+        <activity android:name=".activities.ContactsActivity">
+
+        </activity>
+        <activity android:name=".activities.CalculatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,13 +32,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SendbroadcastActivity"
+            android:name=".activities.SendbroadcastActivity"
             android:label="@string/title_activity_sendbroadcast"
             android:theme="@style/Theme.FirstApplication.NoActionBar">
 
         </activity>
 
-        <receiver android:name=".MyReceiver">
+        <receiver android:name=".receivers.MyReceiver">
             <intent-filter>
                 <action android:name="com.pioneersacademy.alkaff.MyAction" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -59,20 +62,21 @@
         <!-- <action android:name="android.provider.Telephony.SMS_RECEIVED" /> -->
         <!-- </intent-filter> -->
         <!-- </receiver> -->
+
         <activity
-            android:name=".PermissionsActivity"
+            android:name=".activities.PermissionsActivity"
             android:theme="@style/Theme.FirstApplication.NoActionBar"></activity>
-        <activity android:name=".FragmentHostActivity" />
+        <activity android:name=".activities.FragmentHostActivity" />
         <activity
-            android:name=".ListActivity"
+            android:name=".activities.ListActivity"
             android:label="@string/title_activity_list"
             android:theme="@style/Theme.FirstApplication.NoActionBar" />
-        <activity android:name=".SharedPrefsActivity" />
+        <activity android:name=".activities.SharedPrefsActivity" />
         <activity
-            android:name=".IntentActivity"
+            android:name=".activities.IntentActivity"
             android:label="@string/title_activity_intent"
             android:theme="@style/Theme.FirstApplication.NoActionBar" />
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".activities.RegisterActivity">
             <intent-filter
                 android:icon="@mipmap/ic_launcher_round"
                 android:label="RegisterActivity">
@@ -81,7 +85,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activities.LoginActivity">
             <intent-filter
                 android:icon="@drawable/ic_search_black_24dp"
                 android:label="LoginActivity">
@@ -90,7 +94,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.MainActivity" />
     </application>
 
 </manifest>
