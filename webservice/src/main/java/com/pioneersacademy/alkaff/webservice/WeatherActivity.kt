@@ -19,8 +19,9 @@ import java.net.URL
 class WeatherActivity : AppCompatActivity() {
 
     companion object {
-        val TAG:String = "WeatherActivity"
+        const val TAG:String = "WeatherActivity"
     }
+
     private lateinit var binding:ActivityWeatherBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +60,14 @@ class WeatherActivity : AppCompatActivity() {
         // Executed in the main UI before executing doInBackground
         override fun onPreExecute() {
             Log.d(TAG,"onPreExecute -> Thread name:${Thread.currentThread().name}")
-            binding.textViewResult.setText("")
+
+            binding.apply {
+                textViewResult.text = ""
+                progressBar.max = 100
+                //progressBar.isIndeterminate = true
+                progressBar.progress = 0
+            }
+
         }
 
 
@@ -72,28 +80,35 @@ class WeatherActivity : AppCompatActivity() {
 //            Thread.sleep(20000)
 //            Log.d(TAG,"Thread name:${Thread.currentThread().name} is running again")
 
-            try {
+             try {
 
                 val url = URL(params[0])
+                publishProgress(0.25)
                 val urlConnection = url.openConnection() as HttpURLConnection
                 urlConnection.connectTimeout = 7000
-                var inString= ConvertStreamToString(urlConnection.inputStream)
-                return  inString
+                publishProgress(0.50)
+                val inString= ConvertStreamToString(urlConnection.inputStream)
+                publishProgress(1.0)
+
+                 return inString
 
             }catch (e:Exception){
-                return  e.stackTraceToString()
+                e.stackTraceToString()
             }
 
+            return ""
         }
 
         // This method will be executed in the main UI after executing doInBackground
         override fun onPostExecute(result: String?) {
             Log.d(TAG,"onPostExecute -> Thread name:${Thread.currentThread().name}")
-            binding.textViewResult.setText(result)
-            Toast.makeText(this@WeatherActivity,getMainweather(result),Toast.LENGTH_LONG).show()
+            binding.textViewResult.text = result
+            Toast.makeText(this@WeatherActivity,getMainWeather(result),Toast.LENGTH_LONG).show()
         }
 
-
+        override fun onProgressUpdate(vararg values: Double?) {
+            binding.progressBar.setProgress((100 * values[0]!!).toInt())
+        }
 
     }
 
@@ -105,15 +120,11 @@ class WeatherActivity : AppCompatActivity() {
                 val urlConnect=url.openConnection() as HttpURLConnection
                 urlConnect.connectTimeout=7000
 
-                var inString= ConvertStreamToString(urlConnect.inputStream)
-
-
-                return inString
+                return ConvertStreamToString(urlConnect.inputStream)
 
             }catch (e: Exception){
                throw  e
             }
-            return ""
 
         }
 
@@ -164,7 +175,6 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun formatJSONString(json: String?):String{
-
         val gson = GsonBuilder().setPrettyPrinting().create()
         val jp = JsonParser()
         return gson.toJson(jp.parse(json))
@@ -183,19 +193,16 @@ class WeatherActivity : AppCompatActivity() {
 
     }
 
-    private fun getMainweather(jsonString:String?):String {
+    private fun getMainWeather(jsonString:String?):String {
         try {
             val jsonObject = JSONObject(jsonString)
             val weatherArray = jsonObject.getJSONArray("weather")
             val weatherObject = weatherArray.getJSONObject(0)
-            val main = weatherObject.getString("main")
 
-            return  main
+            return weatherObject.getString("main")
         }catch (e:Exception)
         {
             return  ""
         }
-
-
     }
 }
