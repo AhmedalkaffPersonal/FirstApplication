@@ -259,6 +259,7 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
     private fun showCurrentPlace() {
         if (map == null) {
             return
+
         }
         if (locationPermissionGranted) {
             // Use fields to define the data types to return.
