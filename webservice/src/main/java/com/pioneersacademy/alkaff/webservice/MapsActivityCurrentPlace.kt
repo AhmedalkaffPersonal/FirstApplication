@@ -130,8 +130,6 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(map: GoogleMap) {
         this.map = map
 
-        
-
         // Use a custom info window adapter to handle multiple lines of text in the
         // info window contents.
         this.map?.setInfoWindowAdapter(object : GoogleMap.InfoWindowAdapter {

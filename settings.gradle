@@ -1,3 +1,4 @@
+include ':material'
 include ':webservice'
 include ':app'
 rootProject.name = "First Application"
