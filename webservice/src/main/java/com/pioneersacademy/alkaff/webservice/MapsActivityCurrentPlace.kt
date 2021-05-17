@@ -130,6 +130,8 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(map: GoogleMap) {
         this.map = map
 
+        
+
         // Use a custom info window adapter to handle multiple lines of text in the
         // info window contents.
         this.map?.setInfoWindowAdapter(object : GoogleMap.InfoWindowAdapter {
@@ -151,6 +153,7 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
                 return infoWindow
             }
         })
+
 
         // Prompt the user for permission.
         getLocationPermission()
@@ -233,7 +236,6 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
                                 .setAction(R.string.goto_settings) { goToSettings() }.show()
                         }
 
-
                     }
                 }
 
@@ -275,8 +277,8 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
                 if (task.isSuccessful && task.result != null) {
                     val likelyPlaces = task.result
 
-                    // Set the count, handling cases where less than 5 entries are returned.
-                    val count =
+                    // Set the count, handling cases where less than 10 entries are returned.
+                    val count = /* likelyPlaces?.placeLikelihoods?.size ?: 0  */
                         if (likelyPlaces != null && likelyPlaces.placeLikelihoods.size < M_MAX_ENTRIES) {
                             likelyPlaces.placeLikelihoods.size
                         } else {
@@ -388,13 +390,12 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
     companion object {
         private val TAG = MapsActivityCurrentPlace::class.java.simpleName
         private const val DEFAULT_ZOOM = 15
-        private const val PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1
 
         // Keys for storing activity state.
         private const val KEY_CAMERA_POSITION = "camera_position"
         private const val KEY_LOCATION = "location"
 
         // Used for selecting the current place.
-        private const val M_MAX_ENTRIES = 5
+        private const val M_MAX_ENTRIES = 10
     }
 }
