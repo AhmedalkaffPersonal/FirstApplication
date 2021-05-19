@@ -11,6 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="textfield_label">Material</string>
     <string name="next_elevation">elevation</string>
+    <string name="splash_text">Welcome</string>
     <array name="genders">
         <item>Male</item>
         <item>Female</item>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppMaterialTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize for API 21 and above   -->
+
+    </style>
+</resources>

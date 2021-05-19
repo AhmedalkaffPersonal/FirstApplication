@@ -27,17 +27,17 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            this@FirstFragment.context?.let { it1 ->
-                MaterialAlertDialogBuilder(it1)
-                    .setTitle("material dialog")
-                    .setSingleChoiceItems(R.array.genders, -1, DialogInterface.OnClickListener {
-                            dialogInterface: DialogInterface, i: Int ->
-                        Toast.makeText(this.context,resources.getStringArray(R.array.genders)[i].toString(),Toast.LENGTH_LONG).show()
-
-                    })
-                    .show()
-            }
-        }
+//        view.findViewById<Button>(R.id.button_first).setOnClickListener {
+//            this@FirstFragment.context?.let { it1 ->
+//                MaterialAlertDialogBuilder(it1)
+//                    .setTitle("material dialog")
+//                    .setSingleChoiceItems(R.array.genders, -1, DialogInterface.OnClickListener {
+//                            dialogInterface: DialogInterface, i: Int ->
+//                        Toast.makeText(this.context,resources.getStringArray(R.array.genders)[i].toString(),Toast.LENGTH_LONG).show()
+//
+//                    })
+//                    .show()
+//            }
+//        }
     }
 }
