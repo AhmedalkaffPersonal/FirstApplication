@@ -7,6 +7,7 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.Toast
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
@@ -20,21 +21,54 @@ class AnimationActivity : AppCompatActivity() {
         setContentView(mBinding.root)
     }
 
+    /*
+    You can read more about view Animation library https://github.com/daimajia/AndroidViewAnimations
+
+    The supported animations are:
+
+    Attension
+        Flash, Pulse, RubberBand, Shake, Swing, Wobble, Bounce, Tada, StandUp, Wave
+
+    Special
+        Hinge, RollIn, RollOut,Landing,TakingOff,DropOut
+
+    Bounce
+        BounceIn, BounceInDown, BounceInLeft, BounceInRight, BounceInUp
+
+    Fade
+        FadeIn, FadeInUp, FadeInDown, FadeInLeft, FadeInRight
+        FadeOut, FadeOutDown, FadeOutLeft, FadeOutRight, FadeOutUp
+
+    Flip
+        FlipInX, FlipOutX, FlipOutY
+
+    Rotate
+        RotateIn, RotateInDownLeft, RotateInDownRight, RotateInUpLeft, RotateInUpRight
+        RotateOut, RotateOutDownLeft, RotateOutDownRight, RotateOutUpLeft, RotateOutUpRight
+
+    Slide
+        SlideInLeft, SlideInRight, SlideInUp, SlideInDown
+        SlideOutLeft, SlideOutRight, SlideOutUp, SlideOutDown
+
+    Zoom
+        ZoomIn, ZoomInDown, ZoomInLeft, ZoomInRight, ZoomInUp
+        ZoomOut, ZoomOutDown, ZoomOutLeft, ZoomOutRight, ZoomOutUp
+     */
     fun onClick(view: View) {
         when(view.id)
         {
             R.id.button1 ->
             {
-                YoYo.with(Techniques.FadeIn)
+                YoYo.with(Techniques.Flash)
                     .duration(1000)
                     .interpolate(AccelerateDecelerateInterpolator())
-                    .repeat(2)
+                    .repeat(5)
                     .playOn(mBinding.imageView)
 
             }
             R.id.button2 ->
             {
-                YoYo.with(Techniques.FadeOut)
+                YoYo.with(Techniques.Shake)
                     .duration(1000)
                     .interpolate(AccelerateDecelerateInterpolator())
                     .repeat(2)
@@ -42,7 +76,7 @@ class AnimationActivity : AppCompatActivity() {
             }
             R.id.button3 ->
             {
-                YoYo.with(Techniques.DropOut)
+                YoYo.with(Techniques.FadeInUp)
                     .duration(1000)
                     .interpolate(AccelerateDecelerateInterpolator())
                     .repeat(2)
@@ -50,37 +84,27 @@ class AnimationActivity : AppCompatActivity() {
             }
             R.id.button4 ->
             {
-                val animation = AnimationUtils.loadAnimation(applicationContext,
-                R.anim.rotoate_clockwise)
-
-                // Note: start the animation if you are working after loading the view
-                mBinding.imageView.startAnimation(animation)
+                YoYo.with(Techniques.FadeInDown)
+                    .duration(1000)
+                    .interpolate(AccelerateDecelerateInterpolator())
+                    .repeat(2)
+                    .playOn(mBinding.imageView)
 
             }
             R.id.button5 ->
             {
-                YoYo.with(Techniques.RotateIn)
+                YoYo.with(Techniques.FadeInDown)
                     .duration(1000)
-                    .playOn(mBinding.textView2)
-
-
+                    .interpolate(AccelerateDecelerateInterpolator())
+                    .repeat(2)
+                    .playOn(mBinding.imageView)
             }
             R.id.button6 ->
             {
+                // TODO: text all other animations
 
             }
-            R.id.button7 ->
-            {
 
-            }
-            R.id.button8 ->
-            {
-
-            }
-            R.id.button9 ->
-            {
-
-            }
         }
     }
 }
