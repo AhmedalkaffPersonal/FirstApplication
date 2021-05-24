@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DemoFirebase</string>
+    <string name="textfield_password">Password</string>
+    <string name="password_helper_text">Fill your password</string>
+    <string name="textfield_placeholder_text">password</string>
+    <string name="textfield_email">Email</string>
+    <string name="textfield_email_helper_text">Fill your email</string>
+    <string name="textfield_email_placeholder_text">name@domain.com</string>
+</resources>

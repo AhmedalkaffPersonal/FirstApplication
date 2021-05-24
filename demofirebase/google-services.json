@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "88790022304",
+    "firebase_url": "https://pioneerstraining-fc3bc-default-rtdb.firebaseio.com",
+    "project_id": "pioneerstraining-fc3bc",
+    "storage_bucket": "pioneerstraining-fc3bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88790022304:android:5b4abcbb9e97536c1db1c5",
+        "android_client_info": {
+          "package_name": "com.pioneersacademy.alkaff.demofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88790022304-ii0p4vvtit28f5uk9g65kpg554t95fv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCNvgqUpNB8bfHuauKQgsqM5kEeDdx_Os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88790022304-ii0p4vvtit28f5uk9g65kpg554t95fv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88790022304:android:c405489da3e3aa5a1db1c5",
+        "android_client_info": {
+          "package_name": "org.gizjordan.testfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88790022304-ii0p4vvtit28f5uk9g65kpg554t95fv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCNvgqUpNB8bfHuauKQgsqM5kEeDdx_Os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88790022304-ii0p4vvtit28f5uk9g65kpg554t95fv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
