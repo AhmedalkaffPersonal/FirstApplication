@@ -6,4 +6,16 @@
     <string name="textfield_email">Email</string>
     <string name="textfield_email_helper_text">Fill your email</string>
     <string name="textfield_email_placeholder_text">name@domain.com</string>
+    <string name="textfield_re_password">Re-password</string>
+    <string name="re_password_helper_text">Re enter your password</string>
+    <string name="register">Register</string>
+    <string name="create_new_user">new User</string>
+    <string name="goToSettings">Go to settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="image_contentDescription">image</string>
+    <string name="title_select_image">Select Image Action</string>
+    <string name="lbl_camera">Camera</string>
+    <string name="lbl_gallery">Gallery</string>
+    <string name="lbl_title">Title</string>
+
 </resources>

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +16,10 @@ import com.google.firebase.database.*
 import com.pioneersacademy.alkaff.demofirebase.databinding.ActivityMainBinding
 import java.util.*
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.auth.User
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
@@ -23,9 +27,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var users: MutableList<String>
     private lateinit var adapter: ArrayAdapter<String>
     private lateinit var mBinding: ActivityMainBinding
+
+    // Google Analytics
     private lateinit var mFirebaseAnalytics: FirebaseAnalytics
+
+    // Authentication
     private lateinit var auth: FirebaseAuth
 
+    // Storage
+    private lateinit var mStorage: FirebaseStorage
+    private lateinit var mStorageRef: StorageReference
+
+    // FireStore database
+    private lateinit var mDb: FirebaseFirestore
+
+    // Real time database
     private lateinit var mDatabase: FirebaseDatabase
     private lateinit var mDatabaseReference: DatabaseReference
 
@@ -41,12 +57,37 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        mDb = FirebaseFirestore.getInstance()
+
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase.getReference()
+
+        mStorage = FirebaseStorage.getInstance()
+        mStorageRef = mStorage.getReferenceFromUrl("gs://pioneerstraining-fc3bc.appspot.com")
+
         users = mutableListOf<String>()
 
         adapter = ArrayAdapter<String>(this@MainActivity,android.R.layout.simple_list_item_1,users)
 
+
+        mDb.collection(USER_COLLECTION).whereEqualTo(EMAIL,auth.currentUser?.email).get().addOnSuccessListener { query ->
+            Log.d(TAG,"Start loading data")
+            for (doc in query.documents)
+            {
+                Log.d(TAG,"Image uri: ${doc.get(IMAGE_KEY)}")
+
+                mStorageRef.child(doc.get(IMAGE_KEY).toString()).downloadUrl
+                    .addOnSuccessListener {
+                    Log.d(TAG,"Image was downloaded from : ${it}")
+                    Glide.with(this@MainActivity)
+                        .load(it)
+                        .override(resources.getDimensionPixelSize(R.dimen._100sdp), resources.getDimensionPixelSize(R.dimen._150sdp))
+                        .centerCrop()
+                        .into(mBinding.imageView)
+                }
+
+            }
+        }
 
         mBinding.apply {
 
@@ -74,6 +115,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
 
+
+
+
                 mDatabaseReference.child(USER)
                     .addValueEventListener(object :ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
@@ -89,6 +133,8 @@ class MainActivity : AppCompatActivity() {
                                     users.add("${it1.value.toString()} : ${it.child(COUNTER).value}")
                                 }
                             }
+
+
                         }
                         adapter.notifyDataSetChanged()
 
@@ -131,8 +177,19 @@ class MainActivity : AppCompatActivity() {
 
             })
 
-        }
+            // TODO: read the image path from FireStore database for the current users
 
+            mDatabaseReference.child(USER).get()
+
+
+            // TODO: download the image from the Storage using the image path stored at the FireStore
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        Log.d(TAG,"Start at user ${auth.currentUser?.email}")
 
 
     }
@@ -151,7 +208,6 @@ class MainActivity : AppCompatActivity() {
         auth.signOut()
         startActivity(Intent(this@MainActivity, LoginActivity::class.java))
 
-
     }
 
     fun preparePath(path: String?): String {
@@ -160,11 +216,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        val TAG = LoginActivity::class.java.simpleName
+        val TAG = MainActivity::class.java.simpleName
         const val USER = "Users"
         const val ADMIN = "admin"
         const val EMAIL = "email"
         const val UID = "uid"
+        const val USER_COLLECTION = "users"
+        const val IMAGE_KEY = "image"
+
         const val COUNTER = "counter"
         const val LOGIN_TIME = "Login time"
 

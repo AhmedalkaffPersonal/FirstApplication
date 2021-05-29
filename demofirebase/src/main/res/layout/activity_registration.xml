@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegistrationActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loEmail"
@@ -53,7 +53,6 @@
         app:layout_constraintTop_toBottomOf="@+id/loEmail"
         app:placeholderText="@string/textfield_placeholder_text"
         tools:ignore="MissingConstraints">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
@@ -61,40 +60,61 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <Button
-        android:id="@+id/but_login"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lo_RePassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/_8sdp"
-        android:layout_marginLeft="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginRight="@dimen/_8sdp"
-        android:background="@color/colorPrimary"
-        android:onClick="login"
-        android:text="Login"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lo_Password" />
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:hint="@string/textfield_re_password"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:helperText="@string/re_password_helper_text"
+        app:helperTextEnabled="true"
+        app:layout_constraintEnd_toStartOf="@+id/but_register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lo_Password"
+        app:placeholderText="@string/textfield_placeholder_text"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/textView_register"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/ivImagePerson"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:autoLink="web"
-        android:gravity="center"
-        android:scrollbarSize="@dimen/_16ssp"
-        android:text="@string/create_new_user"
-        android:textSize="@dimen/_16ssp"
-        app:autoSizeMaxTextSize="@dimen/_26ssp"
-        app:autoSizeMinTextSize="@dimen/_12ssp"
-        app:autoSizeTextType="uniform"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/but_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/but_login" />
+        app:layout_constraintTop_toBottomOf="@+id/lo_RePassword"
+        app:srcCompat="@mipmap/ic_avatar" />
+
+    <Button
+        android:id="@+id/but_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@color/design_default_color_on_secondary"
+        android:onClick="buLogin"
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
