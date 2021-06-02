@@ -239,8 +239,8 @@ class RegistrationActivity : AppCompatActivity() {
             val fileName = "Image_${email}_${df.format(Calendar.getInstance().time)}"
             val imageRef = mStorageRef.child("images/${fileName}")
 
-            mBinder.ivImagePerson.isDrawingCacheEnabled = true
-            mBinder.ivImagePerson.buildDrawingCache()
+//            mBinder.ivImagePerson.isDrawingCacheEnabled = true
+//            mBinder.ivImagePerson.buildDrawingCache()
             val drwable = mBinder.ivImagePerson.drawable
             val bitmap = drwable.toBitmap()
             val ostr = ByteArrayOutputStream()
@@ -272,8 +272,6 @@ class RegistrationActivity : AppCompatActivity() {
             }.setNegativeButton(R.string.cancel) { dialogInterface: DialogInterface, i: Int ->
                 dialogInterface.dismiss()
             }.show()
-
-
     }
 
     private fun saveUserInfoToFireStore(email: String, password: String, path:String?) {

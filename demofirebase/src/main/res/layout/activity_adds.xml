@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+    tools:context=".AddsActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/banner_ad_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:onClick="openAdActivity"
+            android:padding="@dimen/_8sdp"
+            android:text="Banner Ads" />
+
+        <Button
+            android:id="@+id/interstitial_ad_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:onClick="openAdActivity"
+            android:padding="@dimen/_8sdp"
+            android:text="Interstitial Ads" />
+
+        <Button
+            android:id="@+id/native_ad_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:onClick="openAdActivity"
+            android:padding="@dimen/_8sdp"
+            android:text="Native Ads" />
+
+        <Button
+            android:id="@+id/native_ad_template_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:onClick="openAdActivity"
+            android:padding="@dimen/_8sdp"
+            android:text="Native Ads with template" />
+
+        <Button
+            android:id="@+id/rewarded_ad_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:onClick="openAdActivity"
+            android:padding="@dimen/_8sdp"
+            android:text="Rewarded Ads" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

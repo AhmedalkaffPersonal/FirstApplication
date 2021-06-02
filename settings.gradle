@@ -4,3 +4,4 @@ include ':webservice'
 include ':app'
 project(':demofirebase').projectDir = new File(rootDir, 'demofirebase/')
 rootProject.name = "First Application"
+include ':nativetemplates'

@@ -4,7 +4,10 @@
     package="com.pioneersacademy.alkaff.demofirebase">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,22 +18,36 @@
         tools:ignore="ScopedStorage" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
-        <activity android:name=".RegistrationActivity">
-        </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".NativeAdsFacebookActivity"></activity>
+        <activity android:name=".NativeAdsWithTemplateActivity" />
+        <activity android:name=".RewardedActivity" />
+        <activity android:name=".NativeAdsActivity" />
+        <activity android:name=".InterstitialActivity" />
+        <activity android:name=".BannerActivity" />
+        <activity
+            android:name=".AddsActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9098716701117158~4224297144" />
+
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>

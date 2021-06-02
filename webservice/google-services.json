@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:88790022304:android:5b4abcbb9e97536c1db1c5",
         "android_client_info": {
-          "package_name": "com.pioneersacademy.alkaff.demofirebase"
+          "package_name": "com.pioneersacademy.alkaff.webservice"
         }
       },
       "oauth_client": [
